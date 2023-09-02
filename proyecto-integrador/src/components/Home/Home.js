@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Tracks from "../Tracks/Tracks";
+import Artists from "../Artists/Artists";
 
 class Home extends Component {
     constructor(){
@@ -40,6 +41,13 @@ render(){
             <Tracks key={canciones.id+i} canciones={canciones} /> 
         ))}
         {/* Link para la página para ver todas las canciones */}
+        </section>)}
+        <h2>Artistas más escuchados</h2>
+        {this.state.artistas.length === 0 ? 
+        <h2>Cargando...</h2> : (<section>
+            {this.state.artistas.map((artista, i) => (
+                <Artists key={artista.id + i} artistas = {artista}/>
+            ))}
         </section>)}
         </>
     )
