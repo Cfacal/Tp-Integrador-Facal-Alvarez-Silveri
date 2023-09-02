@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import "./Tracks.css"
+import "./Tracks.css";
+import { Link } from "react-router-dom";
 
 class Tracks extends Component{
     constructor(props){
@@ -30,12 +31,14 @@ render(){
        {this.props.canciones.position <= 5 ? <article>
         <img src={this.props.canciones.album.cover} alt={this.props.canciones.title} />
         <h2>{this.props.canciones.title}</h2>
-        <p>{this.props.canciones.artist.name}</p>
+        <p>Artista: {this.props.canciones.artist.name}</p>
         <button onClick={() => this.verMas()}>{this.state.texto}</button>
         <section className={this.state.verMas ? "show": "hide"}>  <p>Duración: {this.props.canciones.duration}</p></section>
+        <Link to={`/canciones/${this.props.canciones.id}`}>
+            <button>Ir a detalle</button>
+        </Link>
        </article>: ""}
-    {/* // Link o botón “ir a detalle” para ir a la página de detalle del elemento.
-    // Link, botón o ícono "agregar/ quitar de favoritos". */}
+    {/* Link, botón o ícono "agregar/ quitar de favoritos". */}
        </>
     )
 }
