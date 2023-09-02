@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import Tracks from "../Tracks/Tracks";
-import Artists from "../Artists/Artists";
+import Albums from "../Albums/Albums";
 
 class Home extends Component {
     constructor(){
         super();
         this.state = {
             canciones: [],
-            artistas: []
+            albumes: []
         };
     }
 
@@ -19,11 +19,11 @@ componentDidMount(){
         canciones: datos.data
     }))
     .catch(error => console.log(error));
-    fetch("https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/artists")
+    fetch("https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums")
     .then((response)=> response.json())
     .then((datos)=> 
     this.setState({
-        artistas: datos.data
+        albumes: datos.data
     }))
     .catch(error => console.log(error));
 }
@@ -42,11 +42,11 @@ render(){
         ))}
         {/* Link para la página para ver todas las canciones */}
         </section>)}
-        <h2>Artistas más escuchados</h2>
-        {this.state.artistas.length === 0 ? 
+        <h2>Albumes más escuchados</h2>
+        {this.state.albumes.length === 0 ? 
         <h2>Cargando...</h2> : (<section>
-            {this.state.artistas.map((artista, i) => (
-                <Artists key={artista.id + i} artistas = {artista}/>
+            {this.state.albumes.map((album, i) => (
+                <Albums key={album.id + i} albumes = {album}/>
             ))}
         </section>)}
         </>
