@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Footer from "../Footer/Footer";
 
 class DetalleAlbum extends Component{
     constructor(props){
@@ -37,6 +38,7 @@ render(){
         ))}
         {/*  Agregar a favoritos*/}
         </section>)}
+        <Footer/>
 
         </>
     )

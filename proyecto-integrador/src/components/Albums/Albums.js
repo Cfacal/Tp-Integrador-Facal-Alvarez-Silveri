@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./Albums.css";
 import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 
 class Albums extends Component{
@@ -41,7 +42,7 @@ render(){
         </article>: ""}
         {/* // Link o botón “ir a detalle” para ir a la página de detalle del elemento.
         // Link, botón o ícono "agregar/ quitar de favoritos". */}
-
+        <Footer/>
         </>
     )
 }

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Tracks from "../Tracks/Tracks";
 import Albums from "../Albums/Albums";
+import Footer from "../Footer/Footer";
 
 class Home extends Component {
     constructor(){
@@ -49,6 +50,7 @@ render(){
                 <Albums key={album.id + i} albumes = {album}/>
             ))}
         </section>)}
+        <Footer/>
         </>
     )
 }
