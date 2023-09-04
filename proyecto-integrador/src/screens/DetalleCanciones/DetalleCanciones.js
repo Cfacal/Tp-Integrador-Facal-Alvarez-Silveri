@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Footer from "../Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
 class DetalleCanciones extends Component{
     constructor(props){

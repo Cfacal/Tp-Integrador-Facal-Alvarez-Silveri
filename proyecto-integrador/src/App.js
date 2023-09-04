@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from './components/Home/Home';
-import DetalleCanciones from './components/DetalleCanciones/DetalleCanciones';
-import DetalleAlbum from './components/DetalleAlbum/DetalleAlbum';
-import NoEncontrada from './components/NoEncontrada/NoEncontrada';
+import Home from './screens/Home/Home';
+import DetalleCanciones from './screens/DetalleCanciones/DetalleCanciones';
+import DetalleAlbum from './screens/DetalleAlbum/DetalleAlbum';
+import NoEncontrada from './screens/NoEncontrada/NoEncontrada';
 
 function App() {
   return (

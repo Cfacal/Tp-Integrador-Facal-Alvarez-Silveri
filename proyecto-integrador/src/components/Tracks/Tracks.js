@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import "./Tracks.css";
 import { Link } from "react-router-dom";
-import Footer from "../Footer/Footer";
 
 class Tracks extends Component{
     constructor(props){
@@ -40,7 +39,6 @@ render(){
         </Link>
        </article>: ""}
     {/* Link, botón o ícono "agregar/ quitar de favoritos". */}
-    <Footer/>
        </>
     )
 }
