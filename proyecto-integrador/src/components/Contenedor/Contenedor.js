@@ -1,6 +1,7 @@
 import React from "react";
 import Tracks from "../../components/Tracks/Tracks";
 import Albums from "../../components/Albums/Albums";
+import "./Contenedor.css";
 
 function Contenedor(props) {
     { console.log(props.info) }
@@ -8,13 +9,13 @@ function Contenedor(props) {
         <>
             {props.info.length > 0 ?
                 (props.esAlbum ?
-                <section>
+                <section className="cardContainer">
                     {props.info.map((album, i) => (
                         <Albums key={album.id + i} albumes={album} />
                     ))}
                 </section>
                 :
-                <section>
+                <section className="cardContainer">
                     {props.info.map((tracks, i) => (
                         <Tracks key={tracks.id + i} canciones={tracks} />
                     ))}

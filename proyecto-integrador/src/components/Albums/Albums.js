@@ -29,15 +29,16 @@ class Albums extends Component{
 render(){
     return(
         <>
-        {this.props.albumes.position <= 5? <article>
+        {this.props.albumes.position <= 5? <article className="character-card">
             <img src={this.props.albumes.cover} alt={this.props.albumes.title} />
-            <h2>{this.props.albumes.title}</h2>
+            <h2 className="title">{this.props.albumes.title}</h2>
             <p>Artista: {this.props.albumes.artist.name}</p>
             <button onClick={() => this.verMas()}>{this.state.texto}</button>
-            <section className={this.state.verMas ? "show": "hide"}>  <p>Id: {this.props.albumes.id}</p></section>
+            <div><section className={this.state.verMas ? "show": "hide"}>  <p>Id: {this.props.albumes.id}</p></section>
             <Link to={`/albumes/${this.props.albumes.id}`}>
             <button>Ir a detalle</button>
-         </Link>
+            </Link>
+            </div>
         </article>: ""}
         {/* // Link o botón “ir a detalle” para ir a la página de detalle del elemento.
         // Link, botón o ícono "agregar/ quitar de favoritos". */}

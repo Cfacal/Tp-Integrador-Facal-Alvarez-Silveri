@@ -1,0 +1,9 @@
+footer{
+    font-family: "Bebas Neue";
+    font-size: 15px;
+    padding: 5px 30px 5px 30px;
+    border-radius:15px;
+    color: #0fff20;
+    box-shadow: 5px 5px 5px 5px rgb(245,11,134);
+    text-align: center;
+}

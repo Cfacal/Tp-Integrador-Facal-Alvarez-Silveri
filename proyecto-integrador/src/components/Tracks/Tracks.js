@@ -28,15 +28,15 @@ verMas(){
 render(){
     return(
        <>
-       {this.props.canciones.position <= 5 ? <article>
+       {this.props.canciones.position <= 5 ? <article className="character-card">
         <img src={this.props.canciones.album.cover} alt={this.props.canciones.title} />
-        <h2>{this.props.canciones.title}</h2>
+        <h2 className="title">{this.props.canciones.title}</h2>
         <p>Artista: {this.props.canciones.artist.name}</p>
         <button onClick={() => this.verMas()}>{this.state.texto}</button>
-        <section className={this.state.verMas ? "show": "hide"}>  <p>Duración: {this.props.canciones.duration}</p></section>
+        <div><section className={this.state.verMas ? "show": "hide"}>  <p>Duración: {this.props.canciones.duration}</p></section>
         <Link to={`/canciones/${this.props.canciones.id}`}>
             <button>Ir a detalle</button>
-        </Link>
+        </Link></div>
        </article>: ""}
     {/* Link, botón o ícono "agregar/ quitar de favoritos". */}
        </>

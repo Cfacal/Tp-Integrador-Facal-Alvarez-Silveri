@@ -1,0 +1,10 @@
+.cardContainer {
+    border-radius: 4px;
+    padding: 10px 30px;
+    text-transform: capitalize;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
