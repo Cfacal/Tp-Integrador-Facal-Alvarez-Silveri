@@ -8,7 +8,8 @@ class Albums extends Component{
         super(props);
         this.state = {
             verMas: false,
-            texto: "Ver más"
+            texto: "Ver más",
+            textoBoton: 'Agregar a Favoritos',
         };
     }
 
@@ -26,6 +27,33 @@ class Albums extends Component{
         }
     }
 
+    componentDidMount(){
+        //chequear si el id esta en el array de favoritos
+        let recuperoStorage = localStorage.getItem('favoritos');
+
+        if (recuperoStorage != null) {
+            let favoritos = JSON.parse(recuperoStorage);
+            //si esta cambiar el texto del boton
+            favoritos
+        }
+        
+        
+    }
+
+    modificarFavoritos(id){
+
+        let favoritos = [];
+        favoritos.push(id);
+    
+        let favoritosString = JSON.stringify(favoritos);
+        localStorage.setItem('favoritos', favoritosString);
+
+        this.setState({
+            textoBoton: 'Quitar de favoritos'
+        })
+        
+    }
+
 render(){
     return(
         <>
@@ -39,6 +67,7 @@ render(){
             <button>Ir a detalle</button>
             </Link>
             </div>
+            <button onClick={() => this.modificarFavoritos(this.props.albumes.id)} type="button">{this.state.textoBoton}</button>
         </article>: ""}
         {/* // Link o botón “ir a detalle” para ir a la página de detalle del elemento.
         // Link, botón o ícono "agregar/ quitar de favoritos". */}
