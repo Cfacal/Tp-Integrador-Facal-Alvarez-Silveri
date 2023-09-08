@@ -6,6 +6,7 @@ class DetalleAlbum extends Component{
         super(props);
         this.state = {
             album: [],
+            textoBoton: 'Agregar a Favoritos',
         }
     }
 
@@ -17,6 +18,16 @@ componentDidMount(){
         album: datos
     }))
     .catch(error => console.log(error));
+}
+
+modificarFavoritos(id){
+
+    let favoritos = [];
+    favoritos.push(id);
+
+    let favoritosString = JSON.stringify(favoritos);
+    localStorage.setItem('favoritos', favoritosString);
+    
 }
 
 render(){
@@ -34,8 +45,9 @@ render(){
             <div key = {cancion + i}>
             <ul ><li >{cancion.title}</li></ul>
             </div>
-          
+        
         ))}
+        <button onClick={() => this.modificarFavoritos()} type="button">{this.state.textoBoton}</button>
         {/*  Agregar a favoritos*/}
         </section>)}
         <Footer/>
