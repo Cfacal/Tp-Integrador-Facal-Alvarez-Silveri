@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import Footer from "../../components/Footer/Footer";
 import Contenedor from "../../components/Contenedor/Contenedor";
-import BuscadorAlbum from "../../components/BuscadorAlbum/BuscadorAlbum";
+// import BuscadorAlbum from "../../components/BuscadorAlbum/BuscadorAlbum";
+import Formulario from "../../components/Formulario/Formulario";
 
 class Home extends Component {
     constructor(){
@@ -40,7 +41,8 @@ filtrarAlbumes(textoInput) {
 render(){
     return(
         <>
-         <BuscadorAlbum filtrado={(texto) => this.filtrarAlbumes(texto)} />
+         {/* <BuscadorAlbum filtrado={(texto) => this.filtrarAlbumes(texto)} /> */}
+        <Formulario/>
         <h1>Tendencias</h1>
         <h2>Canciones más escuchadas</h2>
         <Contenedor info = {this.state.canciones} esAlbum={false}/>
