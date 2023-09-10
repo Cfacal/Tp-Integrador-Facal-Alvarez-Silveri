@@ -33,9 +33,11 @@ componentDidMount(){
 render(){
     return(
         <>
-        {/* {this.state.resultados.length >0 ? <Contenedor info={this.state.resultados} esResultado = {true}/> : <h2>No se encontraron resultados</h2>} */}
+        <section>    
+        <h2>Resultados de búsqueda: {this.props.match.params.busqueda}</h2>
         {this.state.resultadosAlbum.length >0 ? <Contenedor info={this.state.resultadosAlbum} esAlbum={true}/> : "No se encontraron albumes que coincidan con la búsqueda"}
-        {this.state.resultadosCanciones.length >0 ? <Contenedor info={this.state.resultadosCanciones} esAlbum={false}/> : "No se encontraron canciones que coincidan con la búsqueda"}
+        {this.state.resultadosCanciones.length >0 ? <Contenedor info={this.state.resultadosCanciones} esAlbum={false}/> : "No se encontraron canciones que coincidan con la búsqueda"}</section>
+    
         <Footer/>
         </>
     );

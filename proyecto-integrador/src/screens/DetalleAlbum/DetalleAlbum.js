@@ -31,6 +31,7 @@ modificarFavoritos(id){
 }
 
 render(){
+    console.log(this.state.album)
     return(
         <>
         {this.state.album.length === 0 ? 
