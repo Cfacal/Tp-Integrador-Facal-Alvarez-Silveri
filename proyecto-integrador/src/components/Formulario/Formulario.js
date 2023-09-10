@@ -5,7 +5,8 @@ class Formulario extends Component {
     constructor(props) {
         super(props);
             this.state = {
-                busqueda: ""
+                busqueda: "",
+                BuscarAlbum: false
             };
         }
 
@@ -19,6 +20,19 @@ guardarInput(evento){
         {busqueda: evento.target.value}
     );
 }
+
+// BuscarAlbum(){
+//     if(this.state.BuscarAlbum === false) {
+//         this.setState({
+//             BuscarAlbum: true
+//         });
+//     }else{
+//         this.setState({
+//             BuscarAlbum: false
+//         });
+//     }
+
+// }
 
 render(){
     return(
