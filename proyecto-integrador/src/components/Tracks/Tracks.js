@@ -28,7 +28,7 @@ verMas(){
 render(){
     return(
        <>
-       {this.props.canciones.position <= 5 ? <article className="character-card">
+       <article className="character-card">
         <img src={this.props.canciones.album.cover} alt={this.props.canciones.title} />
         <h2 className="title">{this.props.canciones.title}</h2>
         <p>Artista: {this.props.canciones.artist.name}</p>
@@ -37,7 +37,7 @@ render(){
         <Link to={`/canciones/${this.props.canciones.id}`}>
             <button>Ir a detalle</button>
         </Link></div>
-       </article>: ""}
+       </article>
     {/* Link, botón o ícono "agregar/ quitar de favoritos". */}
        </>
     )

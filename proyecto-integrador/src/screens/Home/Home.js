@@ -14,14 +14,14 @@ class Home extends Component {
     }
 
 componentDidMount(){
-    fetch("https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks?index=0&limit=100")
+    fetch("https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks?index=0&limit=5")
     .then((response)=> response.json() )
     .then((datos)=> 
     this.setState({
         canciones: datos.data
     }))
     .catch(error => console.log(error));
-    fetch("https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums?index=0&limit=100")
+    fetch("https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums?index=0&limit=5")
     .then((response)=> response.json())
     .then((datos)=> 
     this.setState({
@@ -29,14 +29,14 @@ componentDidMount(){
     }))
     .catch(error => console.log(error));
 }
-filtrarAlbumes(textoInput) {
-    let albumesFiltrados = this.state.albumes.filter((album) => {
-      return album.title.toLowerCase().includes(textoInput.toLowerCase());
-    });
-    this.setState({
-      albumes: albumesFiltrados
-    });
-  }
+// filtrarAlbumes(textoInput) {
+//     let albumesFiltrados = this.state.albumes.filter((album) => {
+//       return album.title.toLowerCase().includes(textoInput.toLowerCase());
+//     });
+//     this.setState({
+//       albumes: albumesFiltrados
+//     });
+//   }
 
 render(){
     return(

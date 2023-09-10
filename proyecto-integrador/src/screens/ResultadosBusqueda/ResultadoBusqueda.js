@@ -31,8 +31,6 @@ componentDidMount(){
 }
 
 render(){
-    console.log(this.state.resultadosAlbum)
-    console.log(this.state.resultadosCanciones)
     return(
         <>
         {/* {this.state.resultados.length >0 ? <Contenedor info={this.state.resultados} esResultado = {true}/> : <h2>No se encontraron resultados</h2>} */}
