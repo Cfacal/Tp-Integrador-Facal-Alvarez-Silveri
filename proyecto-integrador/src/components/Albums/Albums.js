@@ -82,7 +82,7 @@ class Albums extends Component{
 render(){
     return(
         <>
-        {this.props.albumes.position <= 5? <article className="character-card">
+        <article className="character-card">
             <img src={this.props.albumes.cover} alt={this.props.albumes.title} />
             <h2 className="title">{this.props.albumes.title}</h2>
             <p>Artista: {this.props.albumes.artist.name}</p>
@@ -93,7 +93,7 @@ render(){
             </Link>
             </div>
             <button onClick={() => this.modificarFavoritos(this.props.albumes.id)} type="button">{this.state.textoBoton}</button>
-        </article>: ""}
+        </article>
         {/* // Link o botón “ir a detalle” para ir a la página de detalle del elemento.
         // Link, botón o ícono "agregar/ quitar de favoritos". */}
 
