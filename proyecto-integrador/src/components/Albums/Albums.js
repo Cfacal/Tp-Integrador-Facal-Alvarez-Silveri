@@ -88,9 +88,14 @@ render(){
             <p>Artista: {this.props.albumes.artist.name}</p>
             <button onClick={() => this.verMas()}>{this.state.texto}</button>
             <div><section className={this.state.verMas ? "show": "hide"}>  <p>Id: {this.props.albumes.id}</p></section>
-            <Link to={`/albumes/${this.props.albumes.id}`}>
+            {this.props.esBusqueda ?  
+            <Link to={`/albumes/${this.props.albumes.album.id}`}>
             <button>Ir a detalle</button>
-            </Link>
+            </Link> 
+            :  <Link to={`/albumes/${this.props.albumes.id}`}>
+            <button>Ir a detalle</button>
+            </Link> }
+           
             </div>
             <button onClick={() => this.modificarFavoritos(this.props.albumes.id)} type="button">{this.state.textoBoton}</button>
         </article>
