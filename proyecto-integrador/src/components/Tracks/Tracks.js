@@ -7,7 +7,8 @@ class Tracks extends Component{
         super(props);
         this.state = {
             verMas: false, 
-            texto: "Ver más"
+            texto: "Ver más",
+            textoBoton: 'Agregar a Favoritos',
         };
     }
 
@@ -25,6 +26,58 @@ verMas(){
     }
 }
 
+componentDidMount(){
+    //chequear si el id esta en el array de favoritos
+    let recuperoStorage = localStorage.getItem('favoritosCanciones');
+
+    if (recuperoStorage != null) {
+        let favoritos = JSON.parse(recuperoStorage);
+        //si esta cambiar el texto del boton
+        if(favoritos.includes(this.props.albumes.id)){
+            this.setState({
+                textoBoton: 'Quitar de favoritos'
+            })
+        }
+    }
+    
+    
+}
+
+modificarFavoritos(id){
+    //guardar id en array y luego en local storage
+    let favoritos = [];
+    let recuperoStorage = localStorage.getItem('favoritosCanciones');
+
+    if (recuperoStorage != null) {
+        favoritos = JSON.parse(recuperoStorage);
+    }
+
+    if(favoritos.includes(id)){
+        //pregunta si el id que esta pasando dentro de props esta dentro del array de favoritos
+        //si esta hay que sacarlo
+        favoritos = favoritos.filter( unId => unId !== id)
+
+        this.setState({
+            textoBoton: 'Agregar a favoritos'
+        })
+
+    } else {
+        //si el id no esta
+        favoritos.push(id);
+        this.setState({
+            textoBoton: 'Quitar de favoritos'
+        })
+    }
+
+    
+    //guardar en local storage
+    let favoritosString = JSON.stringify(favoritos);
+    localStorage.setItem('favoritosCanciones', favoritosString);
+
+    console.log(localStorage);
+    
+}
+
 render(){
     return(
        <>
@@ -37,6 +90,7 @@ render(){
         <Link to={`/canciones/${this.props.canciones.id}`}>
             <button>Ir a detalle</button>
         </Link></div>
+        <button onClick={() => this.modificarFavoritos(this.props.canciones.id)} type="button">{this.state.textoBoton}</button>
        </article>
     {/* Link, botón o ícono "agregar/ quitar de favoritos". */}
        </>

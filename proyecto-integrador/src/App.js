@@ -6,6 +6,7 @@ import DetalleAlbum from './screens/DetalleAlbum/DetalleAlbum';
 import ResultadoBusqueda from './screens/ResultadosBusqueda/ResultadoBusqueda';
 import Favoritos from './screens/Favoritos/Favoritos'
 import NoEncontrada from './screens/NoEncontrada/NoEncontrada';
+import VerTodas from './screens/VerTodas/VerTodas';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/albumes/:id" component = {DetalleAlbum}/>
             <Route path = "/busqueda/:busqueda" component = {ResultadoBusqueda}/>
             <Route path = "/favoritos" component = {Favoritos} />
+            <Route path = "/VerTodas" component = {VerTodas}/>
             <Route path="" component = {NoEncontrada}/>
         </Switch>
         </>
