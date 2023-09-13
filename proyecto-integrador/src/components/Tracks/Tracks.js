@@ -33,7 +33,7 @@ componentDidMount(){
     if (recuperoStorage != null) {
         let favoritos = JSON.parse(recuperoStorage);
         //si esta cambiar el texto del boton
-        if(favoritos.includes(this.props.albumes.id)){
+        if(favoritos.includes(this.props.canciones.id)){
             this.setState({
                 textoBoton: 'Quitar de favoritos'
             })
