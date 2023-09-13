@@ -24,3 +24,38 @@ h1{
     font-size: 35px;
  }
 
+ .navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .linkFavoritos{
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    background-color: #2C5364;
+    padding: 3px;
+    border-radius: 10px;
+    width: 80px;
+    justify-self: center;
+    text-align: center;
+    align-self: center;
+    margin: 10px;
+    text-decoration: none;
+ }
+
+ .linkHome{
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    background-color: #2C5364;
+    padding: 3px;
+    border-radius: 10px;
+    width: 80px;
+    justify-self: center;
+    text-align: center;
+    align-self: center;
+    margin: 10px;
+    text-decoration: none;
+ }

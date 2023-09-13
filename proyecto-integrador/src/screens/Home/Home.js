@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Footer from "../../components/Footer/Footer";
 import Contenedor from "../../components/Contenedor/Contenedor";
 import Formulario from "../../components/Formulario/Formulario";
+import Navbar from "../../components/Navbar/Navbar";
 
 class Home extends Component {
     constructor(){
@@ -33,6 +34,8 @@ render(){
     return(
         <>
         <Formulario/>
+        <Navbar/>
+        
         <h1>Tendencias</h1>
         <h2>Canciones más escuchadas</h2>
         <Contenedor info = {this.state.canciones} esAlbum={false}/>
