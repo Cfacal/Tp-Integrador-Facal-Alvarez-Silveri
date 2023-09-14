@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import "./Formulario.css";
 
 class Formulario extends Component {
     constructor(props) {
@@ -21,26 +22,14 @@ guardarInput(evento){
     );
 }
 
-// BuscarAlbum(){
-//     if(this.state.BuscarAlbum === false) {
-//         this.setState({
-//             BuscarAlbum: true
-//         });
-//     }else{
-//         this.setState({
-//             BuscarAlbum: false
-//         });
-//     }
-
-// }
 
 render(){
     return(
         <>
-        <section>
+        <section className='formulario'>
             <form onSubmit={(evento) => this.evitarSubmit(evento)}>
-                <input type="text" placeholder="Buscar" onChange={(evento) =>this.guardarInput(evento)} value={this.state.busqueda}/>
-                <Link to = {`/busqueda/${this.state.busqueda}`}>Buscar</Link>
+                <input className="input" type="text" placeholder="Buscar" onChange={(evento) =>this.guardarInput(evento)} value={this.state.busqueda}/>
+                <Link to = {`/busqueda/${this.state.busqueda}`}><button className='boton'>Buscar</button></Link>
             </form>
         </section>
         

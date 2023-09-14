@@ -35,6 +35,7 @@ render(){
         <>
          <Navbar/>
         <Formulario/>
+        <br/>
         <h1>Tendencias</h1>
         <h2>Canciones más escuchadas</h2>
         <Contenedor info = {this.state.canciones} esAlbum={false}/>
