@@ -1,0 +1,12 @@
+
+.texto{
+    font-size: 20px;
+} 
+
+.seccion{
+    width: 100vw;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+}

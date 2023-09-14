@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Footer from "../../components/Footer/Footer";
+import "./DetalleCanciones.css";
 
 class DetalleCanciones extends Component{
     constructor(props){
@@ -23,14 +24,18 @@ render(){
     return(
         <>
     {this.state.cancion.length === 0 ? 
-        <h2>Cargando...</h2> : (<section>
+        <h2>Cargando...</h2> : (<section className="section">
         <img src={this.state.cancion.album.cover_medium} alt={this.state.cancion.title} />
-        <h2>{this.state.cancion.title}</h2>
-         <p>Artista: {this.state.cancion.artist.name}</p>
-         <p>Nombre del disco: {this.state.cancion.album.title}</p>
+         <div className="division">
+         <h2>{this.state.cancion.title}</h2>
+         <p className="letra">Artista: {this.state.cancion.artist.name}</p>
+         <p className="letra">Nombre del disco: {this.state.cancion.album.title}</p>
+         </div>
+        
          <audio controls>
             <source src= {this.state.cancion.preview}/>
          </audio>
+ 
          {/* Agregar a favoritos */}
         </section>)}
         <Footer/>
