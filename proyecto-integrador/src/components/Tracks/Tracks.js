@@ -28,10 +28,10 @@ verMas(){
 
 componentDidMount(){
     //chequear si el id esta en el array de favoritos
-    let recuperoStorage = localStorage.getItem('favoritosCanciones');
+    let recuperoStorageT = localStorage.getItem('favoritosCanciones');
 
-    if (recuperoStorage != null) {
-        let favoritos = JSON.parse(recuperoStorage);
+    if (recuperoStorageT != null) {
+        let favoritos = JSON.parse(recuperoStorageT);
         //si esta cambiar el texto del boton
         if(favoritos.includes(this.props.canciones.id)){
             this.setState({
@@ -46,10 +46,10 @@ componentDidMount(){
 modificarFavoritos(id){
     //guardar id en array y luego en local storage
     let favoritos = [];
-    let recuperoStorage = localStorage.getItem('favoritosCanciones');
+    let recuperoStorageT = localStorage.getItem('favoritosCanciones');
 
-    if (recuperoStorage != null) {
-        favoritos = JSON.parse(recuperoStorage);
+    if (recuperoStorageT != null) {
+        favoritos = JSON.parse(recuperoStorageT);
     }
 
     if(favoritos.includes(id)){
@@ -74,7 +74,7 @@ modificarFavoritos(id){
     let favoritosString = JSON.stringify(favoritos);
     localStorage.setItem('favoritosCanciones', favoritosString);
 
-    console.log(localStorage);
+    //console.log(localStorage);
     
 }
 
