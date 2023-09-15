@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Footer from "../../components/Footer/Footer";
 import "./DetalleAlbum.css";
+import Navbar from "../../components/Navbar/Navbar";
 
 class DetalleAlbum extends Component{
     constructor(props){
@@ -34,6 +35,7 @@ modificarFavoritos(id){
 render(){
     return(
         <>
+        <Navbar/>
         {this.state.album.length === 0 ? 
         <h2>Cargando...</h2> : (<section className="seccion">
         <img src={this.state.album.cover_medium} alt={this.state.album.title} />

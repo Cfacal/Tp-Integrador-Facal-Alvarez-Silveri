@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Footer from "../../components/Footer/Footer";
 import "./DetalleCanciones.css";
+import Navbar from "../../components/Navbar/Navbar";
 
 class DetalleCanciones extends Component{
     constructor(props){
@@ -23,6 +24,7 @@ componentDidMount(){
 render(){
     return(
         <>
+        <Navbar/>
     {this.state.cancion.length === 0 ? 
         <h2>Cargando...</h2> : (<section className="section">
         <img src={this.state.cancion.album.cover_medium} alt={this.state.cancion.title} />

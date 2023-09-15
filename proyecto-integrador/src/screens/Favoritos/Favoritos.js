@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Albums from "../../components/Albums/Albums";
-
+import Navbar from "../../components/Navbar/Navbar";
 import Contenedor from "../../components/Contenedor/Contenedor";
 
 
@@ -72,6 +72,7 @@ class Favoritos extends Component {
         return (
             
             <>
+            <Navbar/>
             <h1>Favoritos</h1>
             <section>
                 <h2>Albumes favoritos</h2>
