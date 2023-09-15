@@ -29,7 +29,7 @@ class Albums extends Component{
 
     componentDidMount(){
         //chequear si el id esta en el array de favoritos
-        let recuperoStorage = localStorage.getItem('favoritos');
+        let recuperoStorage = localStorage.getItem('albumes');
 
         if (recuperoStorage != null) {
             let favoritos = JSON.parse(recuperoStorage);
@@ -47,7 +47,7 @@ class Albums extends Component{
     modificarFavoritos(id){
         //guardar id en array y luego en local storage
         let favoritos = [];
-        let recuperoStorage = localStorage.getItem('favoritos');
+        let recuperoStorage = localStorage.getItem('albumes');
 
         if (recuperoStorage != null) {
             favoritos = JSON.parse(recuperoStorage);
@@ -73,9 +73,9 @@ class Albums extends Component{
         
         //guardar en local storage
         let favoritosString = JSON.stringify(favoritos);
-        localStorage.setItem('favoritos', favoritosString);
+        localStorage.setItem('albumes', favoritosString);
 
-        console.log(localStorage);
+        // console.log(localStorage);
         
     }
 

@@ -5,41 +5,44 @@ import Contenedor from "../../components/Contenedor/Contenedor";
 
 
 
-
-// console.log(recuperoStorage);
-
-
-
-// console.log(recuperoStorage);
-
-
-
 class Favoritos extends Component {
     constructor(props){
         super(props);
         this.state = {
-            favoritosAlbum : []
+            favoritosAlbum : [],
+            favoritosArray: []
         }
       }
       
-      recuperoStorage(){
-        let recuperoStorage = localStorage.getItem('favoritos')
-        console.log(recuperoStorage);
-        let favoritosAlbum = JSON.parse(recuperoStorage);
-        return favoritosAlbum
-      }
+    //   recuperoStorage(){
+    //     let recuperoStorage = localStorage.getItem('favoritos')
+    //     console.log(recuperoStorage);
+    //     let favoritosAlbum = JSON.parse(recuperoStorage);
+    //     return favoritosAlbum
+    //   }
     
       componentDidMount() {
-        
-        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${this.props.match.params.id}`)
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            this.setState({
-                favoritosAlbum: data,
-            })
+
+        let recuperoStorage = localStorage.getItem('albumes');
+        let favoritosArray = JSON.parse(recuperoStorage);
+        if (favoritosArray === null){
+            favoritosArray = []
+        }
+
+        favoritosArray.map((id)=>{
+            fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${id}`)
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              this.setState({
+                  favoritosAlbum: this.state.favoritosAlbum.concat(data)
+              })
+          })
+            .catch((err) => console.log(err));
+
         })
-          .catch((err) => console.log(err));
+        
+       
 
       }
 
@@ -48,14 +51,11 @@ class Favoritos extends Component {
             
             <>
             <h1>Favoritos</h1>
-            <section className="favoritosAlbum" ></section>
-             {this.state.favoritosAlbum.map((unAlbum, idx) => {
-            if (idx === favoritosAlbum.length) {
-              return (<Albums/>)
-            } else {return (null)}
-          })} 
-            
-            {this.state.favoritosAlbum.length > 0 ? <Contenedor info = {this.state.favoritosAlbum} esAlbum={true}/> : <h3>Cargando...</h3>}
+            <section>
+                <h2>Albumes favoritos</h2>
+                {this.state.favoritosAlbum.length === 0? "No hay albumes favoritos": <Contenedor info={this.state.favoritosAlbum} esAlbum={true}/>}
+            </section>
+    
 
             </> 
         );    
