@@ -22,11 +22,11 @@ class Favoritos extends Component {
     
       componentDidMount() {
         
-        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums?index=0&limit=5')
+        fetch()
           .then((res) => res.json())
           .then((data) =>
             this.setState({
-              albumes: data,
+              albumsFavoritos: data,
             })
           )
           .catch((err) => console.log(err));
@@ -38,16 +38,14 @@ class Favoritos extends Component {
             <React.Fragment>
     
             <h1>Favoritos</h1>
-            <section id="favoritosPelis" ></section>
-             {this.state.favoritosAlbum.map((album, idx) => {
+            <section className="favoritosAlbum" ></section>
+             {this.state.favoritosAlbum.map((unAlbum, idx) => {
             if (idx === favoritosAlbum.length) {
-              return (<Albums
-              albumes={album}
-            />)
+              return (<Albums/>)
             } else {return (null)}
           })} 
             
-            {this.state.favoritosAlbum.length > 0 ? <Contenedor array={this.state.favoritosAlbum}/> : <h3>Cargando...</h3>}
+            {this.state.favoritosAlbum.length > 0 ? <Contenedor info={this.state.favoritosAlbum}/> : <h3>Cargando...</h3>}
 
             </React.Fragment>
         );    
