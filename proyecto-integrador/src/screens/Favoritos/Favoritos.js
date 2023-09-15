@@ -22,7 +22,7 @@ class Favoritos extends Component {
     
       componentDidMount() {
         
-        fetch()
+        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${this.props.match.params.id}`)
           .then((res) => res.json())
           .then((data) =>
             this.setState({
@@ -45,7 +45,7 @@ class Favoritos extends Component {
             } else {return (null)}
           })} 
             
-            {this.state.favoritosAlbum.length > 0 ? <Contenedor info={this.state.favoritosAlbum}/> : <h3>Cargando...</h3>}
+            {this.state.favoritosAlbum.length > 0 ? <Contenedor/> : <h3>Cargando...</h3>}
 
             </React.Fragment>
         );    
