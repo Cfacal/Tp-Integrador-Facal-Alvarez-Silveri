@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Albums from "../../components/Albums/Albums";
 
 import Contenedor from "../../components/Contenedor/Contenedor";
 
@@ -52,7 +51,7 @@ class Favoritos extends Component {
         });
 
         arrayTracks.map((id)=>{
-            fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/tracks/${id}`)
+            fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/track/${id}`)
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
