@@ -9,6 +9,7 @@ class DetalleAlbum extends Component{
         this.state = {
             album: [],
             textoBoton: 'Agregar a Favoritos',
+
         }
     }
 
@@ -20,19 +21,53 @@ componentDidMount(){
         album: datos
     }))
     .catch(error => console.log(error));
+    
+
+    let recuperoStorage = localStorage.getItem('albumes');
+
+        if (recuperoStorage != null) {
+            let favoritos = JSON.parse(recuperoStorage);
+            //si esta cambiar el texto del boton
+            if(favoritos.includes(this.state.album.id)){
+                this.setState({
+                    textoBoton: 'Quitar de favoritos'
+                })
+            }}
 }
 
 modificarFavoritos(id){
-
+    //guardar id en array y luego en local storage
     let favoritos = [];
-    favoritos.push(id);
+    let recuperoStorage = localStorage.getItem('albumes');
 
+    if (recuperoStorage != null) {
+        favoritos = JSON.parse(recuperoStorage);
+    }
+
+    if(favoritos.includes(id)){
+        //pregunta si el id que esta pasando dentro de props esta dentro del array de favoritos
+        //si esta hay que sacarlo
+        favoritos = favoritos.filter( unId => unId !== id)
+
+        this.setState({
+            textoBoton: 'Agregar a favoritos'
+        })
+
+    } else {
+        //si el id no esta
+        favoritos.push(id);
+        this.setState({
+            textoBoton: 'Quitar de favoritos'
+        })
+    }
+    //guardar en local storage
     let favoritosString = JSON.stringify(favoritos);
-    localStorage.setItem('favoritos', favoritosString);
-    
+    localStorage.setItem('albumes', favoritosString);
+
 }
 
 render(){
+    console.log(this.state.album)
     return(
         <>
         <Navbar/>
@@ -50,7 +85,7 @@ render(){
             </div>
         
         ))}
-        <button onClick={() => this.modificarFavoritos()} type="button">{this.state.textoBoton}</button>
+        <button onClick={() => this.modificarFavoritos(this.state.album.id)} type="button">{this.state.textoBoton}</button>
         </section>)}
         <br/>
         <Footer/>
