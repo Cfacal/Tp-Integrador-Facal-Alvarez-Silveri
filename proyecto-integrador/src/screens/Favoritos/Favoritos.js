@@ -7,7 +7,7 @@ let recuperoStorage = localStorage.getItem('favoritos')
 
 
 
-console.log(recuperoStorage);
+// console.log(recuperoStorage);
 
 let favoritosAlbum = JSON.parse(recuperoStorage);
 
