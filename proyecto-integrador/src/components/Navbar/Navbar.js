@@ -9,7 +9,8 @@ function Navbar () {
         <nav className='navbar'>
           
           <Link className="linkHome"to="/">Home</Link>
-          <Link className="linkHome"to="/VerTodas">Ver todas</Link>
+          <Link className="linkHome"to="/VerTodasAlbum">Ver todos los Albums</Link>
+          <Link className="linkHome"to="/VerTodasTracks">Ver todos los Tracks</Link>
           <Link className='linkFavoritos' to="/favoritos">Favoritos</Link>
         
         </nav>
