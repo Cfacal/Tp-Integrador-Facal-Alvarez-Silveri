@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Contenedor from "../../components/Contenedor/Contenedor"
-
+import Navbar from "../../components/Navbar/Navbar";
 class VerTodas extends Component{
     constructor(props){
       super(props);
@@ -23,6 +23,7 @@ class VerTodas extends Component{
     render(){
         return (
             <React.Fragment>
+                <Navbar/>
                 <h1> Max</h1>
             
                 <h3 className="h3">Canciones populares</h3>
