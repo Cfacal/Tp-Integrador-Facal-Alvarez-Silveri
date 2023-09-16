@@ -76,3 +76,18 @@ h1{
     align-items: flex-end;
     flex-wrap: wrap;
  }
+
+ .linkHomeVT{
+   width: 100%;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #1c1c1c88;
+    margin: 15px;
+    padding-bottom: 10px;
+    align-items: flex-end;
+   
+ }
