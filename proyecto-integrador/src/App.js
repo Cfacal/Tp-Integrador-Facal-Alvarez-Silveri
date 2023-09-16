@@ -7,7 +7,7 @@ import ResultadoBusqueda from './screens/ResultadosBusqueda/ResultadoBusqueda';
 import Favoritos from './screens/Favoritos/Favoritos'
 import NoEncontrada from './screens/NoEncontrada/NoEncontrada';
 import VerTodasAlbum from './screens/VerTodas/VerTodasAlbum';
-import VerTodasTracks from './screens/VerTodas/verTodasTracks';
+import VerTodasTracks from './screens/VerTodas/VerTodasTracks';
 
 function App() {
   return (

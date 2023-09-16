@@ -1,37 +1,45 @@
 import React, {Component} from "react";
 import Contenedor from "../../components/Contenedor/Contenedor"
 import Navbar from "../../components/Navbar/Navbar";
-class VerTodas extends Component{
+
+
+class VerTodasAlbum extends Component{
     constructor(props){
       super(props);
       this.state = {
-        canciones: false
+        Album: [],
+        n_pag: [],
       }
     }
 
     componentDidMount() {
-        fetch()
-            .then((res) => res.json())
-            .then((data) =>
-                this.setState({
-                    canciones: data.results,
-                }, () => console.log(data))
-            )
-            .catch((e) => console.log(e));
+        this.agregarAlbumes()
     }
 
+    agregarAlbumes(){
+    fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums?index=0&limit=100')
+            .then((res) => res.json())
+            .then((datos) =>
+                this.setState({
+                    Album: this.state.Album.concat(datos.data),
+                    n_pag: this.state.n_pag + 1
+                }), 
+            )
+            .catch((e) => console.log(e));
+        }
     render(){
         return (
             <React.Fragment>
                 <Navbar/>
-                <h1> Max</h1>
-            
-                <h3 className="h3">Canciones populares</h3>
+                <h1> Todos los Albumes</h1>
+                <button onClick={this.agregarAlbumes()}className="linkHome">Ver mas</button>
+                <section className="contenedorVerMas">
+                <Contenedor className="seccionAlbumTracks" info = {this.state.Album} esAlbum={true}/>
+                </section>
                 
-                <Contenedor url = 'https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks?index=0&limit=5'/>
             </React.Fragment>
         )
     }
 }
 
-export default VerTodas;
+export default VerTodasAlbum;
